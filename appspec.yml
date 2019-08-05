@@ -4,6 +4,21 @@ files:
   - source: \
     destination: c:\inetpub\wwwroot
 hooks:
+  ApplicationStop:
+    - location: \scripts\application-stop.ps1
+      timeout: 300
   BeforeInstall:
     - location: \scripts\before-install.bat
-      timeout: 900
+      timeout: 300
+  AfterInstall:
+    - location: \scripts\after-install.ps1
+      timeout: 300
+  ApplicationStart:
+    - location: \scripts\application-start.ps1
+      timeout: 300
+  ValidateService:
+    - location: \scripts\validate-service.ps1
+      timeout: 300
+
+# tail logs for a deployment here:
+# Get-Content C:\ProgramData\Amazon\CodeDeploy\0ff22760-afdb-4c5f-966e-c09145052fbf\deployment-id\logs\scripts.log –Wait
