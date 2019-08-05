@@ -1,5 +1,12 @@
+<powershell> 
+Start-Transcript;
+
 $ErrorActionPreference = 'Stop'
 
 echo "Currently executing custom powershell script for BeforeInstall hook"
-Import-Module -Name ServerManager
-Install-WindowsFeature Web-Server
+
+# Install IIS
+Import-Module ServerManager; 
+Enable-WindowsOptionalFeature -Online -NoRestart -FeatureName 'IIS-WebServerRole', 'IIS-WebServer', 'IIS-ManagementConsole';
+
+</powershell>
