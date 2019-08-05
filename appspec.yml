@@ -8,7 +8,7 @@ hooks:
     - location: \scripts\application-stop.ps1
       timeout: 300
   BeforeInstall:
-    - location: \scripts\before-install.bat
+    - location: \scripts\before-install.ps1
       timeout: 300
   AfterInstall:
     - location: \scripts\after-install.ps1
